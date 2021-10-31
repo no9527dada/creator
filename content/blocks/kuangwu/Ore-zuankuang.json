@@ -1,0 +1,11 @@
+{
+	"type": "OreBlock",
+	"itemDrop": "zuankuang",
+	"oreDefault" :true//自定义地图自动生成
+    "oreScale": 45, //自动生成的默认规模
+    "oreThreshold": 0.91, ////自动生成的默认密集度
+	//"name":"钻石原矿",
+	"playerUnmineable": false,
+	"variants": 4//贴图数量
+	"useColor":true
+}

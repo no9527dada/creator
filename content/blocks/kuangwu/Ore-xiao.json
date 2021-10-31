@@ -1,0 +1,11 @@
+{
+	"type": "OreBlock",
+	"itemDrop": "weijing4",
+	"oreDefault" :true//自定义地图自动生成
+    "oreScale": 40, //自动生成的默认规模
+    "oreThreshold": 0.93, ////自动生成的默认密集度
+	//"name":"硝矿",
+	"playerUnmineable": false,
+	"variants": 3//贴图数量
+	"useColor":true
+}

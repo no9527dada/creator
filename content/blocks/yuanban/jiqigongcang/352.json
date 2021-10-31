@@ -1,0 +1,49 @@
+{
+    //"name": "虚灵级单位重构工厂",
+    //"description": "将T5级单位进行再次升级，使单位变得更加强大",
+    "health": 5500,
+    "size": 11,
+    "type": "Reconstructor",
+    "itemCapacity":3000,
+    "constructTime": 18000,
+        "consumes":{
+            "power":2500,
+            "items":
+                {
+                    "items":
+                    [  //{"item":"copper","amount" :1},
+                        {"item":"dabaoyedan","amount" :500},
+                        {"item":"guijingti","amount" :1300},
+                        {"item":"titanium","amount" :3000},
+                        {"item":"jin","amount" :2500},
+                        {"item":"monengjing1","amount" :800},
+                        {"item":"weijing2","amount" :1300},
+                        {"item":"weijing3","amount" :90}
+                    ]
+                }
+         
+        
+        },
+        "upgrades":[
+         ["oct","oct2"],
+         ["eclipse","T6rishi"],
+         ["reign","T6wangzuo"],
+         ["arkyid","T6tianxie"],
+         ["corvus","T6sixing"],
+         ["5kuangji","6kuangji"]
+            
+        ],
+    	"requirements":[
+            {"item":"copper","amount" :5000},
+            {"item":"lead","amount" :5000},
+            {"item":"guijingti","amount" :2000},
+            {"item":"shimoxi","amount" :1500},
+            {"item":"metaglass","amount" :400},
+            {"item":"jin","amount" :2500},
+            {"item":"weijing2","amount" :800},
+            {"item":"monengjing2","amount" :10}
+        ],
+
+    "category": "units",
+    "research": "288"
+}

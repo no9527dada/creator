@@ -1,0 +1,81 @@
+{  "canOverdrive": true,
+   // "name": "天谴终结者",
+   // "description": "本模组终极炮塔。理论上秒杀终极BOSS以下",
+   // "type": "LaserTurret",
+    "size": 6,
+    "health": 2600,
+    "buildCostMultiplier": 1.5,
+    "heatColor": "6F00D2",
+    "shootEffect": "shootBig",
+     "shootSound": "ronghui4",
+    //"ammoPerShot": 1,
+    "range": 600,
+    "firingMoveFract": 0.5,
+    "inaccuracy": 0,
+    "rotateSpeed": 2.5,//旋转速度
+    //  "shootShake": 5,
+    "chargeTime": 60,
+   // "chargeEffects": 777,
+    "chargeMaxDelay": 300,
+    "recoilAmount": 7,
+
+    "shootShake": 1,
+    "shootCone": 5,
+    "coolEffect": "steam",
+    "cooldown": 1,
+    "consumes": {
+        "liquid": {
+            "liquid": "qiangxiaolengqueye",
+            "amount": 0.025,
+            //"booster": false
+        }
+    },
+    "shootType": {
+        "type": "ContinuousLaserBulletType",
+        "hitEffect": "hitMeltdown",
+        "length": 600,
+        "damage": 7000,
+        "incendChance": 0.4,
+        "incendSpread": 5,
+        "incendAmount": 1,
+        "width": 10,
+        "colors": [
+            "B15BFF", "6F00D2" ,"F0FFFF"
+        ]
+    },
+    "powerUse": 1333.33333333,//583.33333=3.5K
+    "reloadTime": 7,
+    "shootDuration": 20, //炮口停留时间
+    "requirements": [
+        {
+            "item": "lead",
+            "amount": 3000
+        },
+        {
+            "item": "copper",
+            "amount": 2400
+        },
+        {
+            "item": "guijingti",
+            "amount": 4300
+        },
+        {
+            "item": "weijing5",
+            "amount": 60
+        },
+        {
+            "item": "monengjing3",
+            "amount": 20
+        },
+        {
+            "item": "jin",
+            "amount": 1320
+        },
+        {
+            "item": "weijing4",
+            "amount": 300
+        }
+    ],
+"category": "turret",
+"research": "ronghui2"
+}

@@ -1,0 +1,33 @@
+{
+	
+	"requirements": [
+		{
+			"item": "copper",
+			"amount": 1500
+		},
+		{
+			"item": "lead",
+			"amount": 1200
+		},
+		{
+			"item": "shimoxi",
+			"amount": 800
+		},
+
+		{
+			"item": "guijingti",
+			"amount": 2000
+		},
+        {
+			"item": "weijing2",
+			"amount": 200
+		},
+		{
+			"item": "weijing3",
+			"amount": 20
+		}
+	],
+	"category": "effect",
+	"research": "3jizhiqu"
+
+}

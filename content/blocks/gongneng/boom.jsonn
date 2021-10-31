@@ -1,0 +1,14 @@
+{
+//     "health": 200,
+//     "size": 4,
+//     "buildCostMultiplier":2,
+//     "requirements": [
+//         { "item": "titanium", "amount": 3000 },
+//         { "item": "silicon", "amount": 5000 },
+//     ],
+//     "consumes": {
+//         "power": 100
+//     },
+//     "category": "turret",
+//   //  "research": "bomb-1"
+}

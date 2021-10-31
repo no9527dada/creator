@@ -1,0 +1,23 @@
+{
+    "canOverdrive": false, //不可超速
+    "type": "UnitFactory",
+    "health":2147483647,
+   // "buildVisibility": "editorOnly",
+   "buildVisibility": "sandboxOnly",//仅沙盒
+    "plans": [
+        {
+            "unit": "rule",
+            "requirements": [
+                {
+                    "item": "invalid",
+                    "amount": 1
+                }
+            ],
+            "time": 432000
+        }
+    ],
+    "requirements": [],
+    "consumes": {
+    },
+    "category": "units"
+}

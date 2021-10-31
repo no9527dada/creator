@@ -1,0 +1,11 @@
+{
+  // "update": true,//更新
+  // "destructible": false,//可破坏
+  // "solid": true,//固体，单位碰撞
+  // "targetable": false,//可命中目标的，子弹碰撞
+  "buildVisibility": "sandboxOnly",
+  "health": 1,
+  "size": 2,
+  "requirements": [],
+  "category": "defense" // "research": "invincible-wall-small"
+}

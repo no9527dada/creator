@@ -1,0 +1,39 @@
+{
+    "type": "launchPad",
+    "size": 4,
+    "hasPower": true,
+    "health": 2200,
+    "launchTime": 24000,
+    "buildCostMultiplier": 20,
+    "canOverdrive": false,
+    "itemCapacity": 5,
+    "alwaysUnlocked":true,
+    "buildVisibility": "campaignOnly",
+    "consumes": {
+        "power": 900
+    },
+    "requirements": [
+        {
+            "item": "copper",
+            "amount": 1200
+        },
+        {
+            "item": "lead",
+            "amount": 1500
+        },
+        {
+            "item": "guijingti",
+            "amount": 350
+        },
+        {
+            "item": "plastanium",
+            "amount": 125
+        },
+        {
+            "item": "weijing5",
+            "amount": 5
+        }
+    ],
+    "category": "effect",
+    "research": "interplanetary-accelerator"
+}

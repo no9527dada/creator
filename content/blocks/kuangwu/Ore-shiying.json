@@ -1,0 +1,11 @@
+{
+	"type": "OreBlock",
+	"itemDrop": "shiying",
+	"oreDefault" :true//自定义地图自动生成
+    "oreScale": 24, //自动生成的默认规模
+    "oreThreshold": 0.9, ////自动生成的默认密集度
+	//"name":"石英",
+	"playerUnmineable": false,
+	"variants": 3//贴图数量
+	"useColor":true
+}

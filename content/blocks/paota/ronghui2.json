@@ -1,0 +1,75 @@
+{
+    "canOverdrive": true,
+    //"name": "天煞",
+    // "description": "伤害高，范围大",
+    // "type": "LaserTurret",
+    "size": 4,
+    "health": 2600,
+    "buildCostMultiplier": 0.4,
+    
+    //"heatColor": "d98686",
+    //"shootEffect": "shootBig",
+    "shootSound": "tiansha",
+    "range": 480,
+    // "recoilAmount": 7,
+    "rotateSpeed": 1,//旋转速度
+    //  "shootShake": 5,
+    "chargeTime": 250,
+    "reloadTime": 1300,
+   // "chargeEffects": 777,
+    "chargeMaxDelay": 300,
+    "coolantMultiplier":120,//液体增强射速倍率
+    recoilAmount : 2, //反冲数量
+    cooldown : 0.03,
+    powerUse : 390,
+    shootShake : 2,
+    // "cooldown": 1,
+     "consumes": {
+        "liquid": {
+             "liquid": "cryofluid",
+             "amount": 0.05,
+             "booster": true
+         }
+     },
+
+    "requirements": [
+        {
+            "item": "lead",
+            "amount": 4500
+        },
+        {
+            "item": "copper",
+            "amount": 3200
+        },
+        {
+            "item": "zuanjing",
+            "amount": 1800
+        },
+        {
+            "item": "guijingti",
+            "amount": 2500
+        },
+        {
+            "item": "weijing2",
+            "amount": 40
+        },
+        {
+            "item": "molishi",
+            "amount": 750
+        },
+        {
+            "item": "shimoxi",
+            "amount": 400
+        },
+        {
+            "item": "jin",
+            "amount": 1760
+        },
+        {
+            "item": "weijing1",
+            "amount": 450
+        }
+    ],
+    "category": "turret",
+    "research": "ronghui3"
+}
