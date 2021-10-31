@@ -1,0 +1,127 @@
+{
+    "alwaysUnlocked": true,
+    "type": "flying",
+    //"name": "终极",
+    // "description": "本模组的最终BOSS 普通武器有150电击伤害 武器可以用阻电墙格挡电击",
+    "speed": 0.2, //速度
+    "lowAltitude": true,
+    "rotateSpeed": 0.5, //单位转速
+    "hitSize": 88, //单位的大小
+   // "turnCursor": true,
+    "health": 140000, //血量
+    "itemCapacity": 2000, //容量
+    "flying": true, //飞行
+    "engineOffset": 40,
+    "engineSize": 10,
+    "isCounted": false,
+    "armor": 60000, //护甲
+    //优先攻击目标，首要目标，首要攻击目标，优先目标
+    "targetFlags": [
+       // "launchPad", //发射台
+        "storage", //仓库
+        "battery" //电池
+        "generator", //发电设备
+        "factory", //工厂
+       // "reactor" //反应堆
+       "core", //核心
+    ],
+    "weapons": [
+        {
+            "top": false,
+            "shootSound": "shootBig",
+            "name": "zhongji-s-large",
+            "rotate": false, //武器旋转
+            "shootY": 2,
+            "reload": 14,
+            "recoil": 1,
+            "reloadTime": 15,
+            "ejectEffect": "casing1",
+            "x": 25,
+            "y": 15,
+            "bullet": {
+                "type": "BasicBulletType", //320
+                "recoil": 0, //反冲
+                "width": 22,
+                "height": 30,
+                "speed": 4,
+                "damage": 3000,
+                "ammoMultiplier": 3,
+                "hitSize": 8,
+                "lifetime": 110,
+                "pierce": false,
+                "shootEffect": "shootBig",
+                //"hitEffect": "hitFlameSmall",
+                //"despawnEffect": "none",
+                "lightning": 100, //闪电根数
+                "lightningLength": 7, //闪电长度
+                "lightningDamage": 50, //闪电伤害
+                //"status": "burning",
+                "keepVelocity": false,
+                "backColor": "cbb0ff", //背景颜色
+                "frontColor": "cbb0ff", //前面颜色
+                "hittable": false
+            }
+        },
+        {
+            //"shootEffect": "s-zhongji",
+            "shootSound": "s-zhongji",
+            //"chargeSound": "s-zhongji",
+            "name": "zhongji-s-heat",
+            "rotate": true, //武器旋转
+            "top": false,
+            "mirror": true, //镜像
+            "continuous": true,
+            "rotateSpeed":2,//武器转速
+            "shootY": 5,
+            "reload": 14, //子弹射速
+            "recoil": 3, //反冲
+            "reloadTime": 15,
+            "x": 30,
+            "y": -20,
+            "ejectEffect": "casing1",
+            // "firstShotDelay":65,
+            // "shootStatus":"unmoving",//发射状态
+            "bullet": {
+                "type": "LaserBulletType", //320
+                "colors": [
+                    "ab57ff",
+                    "e2c5ff",
+                    "ffffff"
+                ],
+                "width": 75,
+                "length": 460,
+                "damage": 3200,
+                
+                "despawnEffect": "none",
+                "lifetime": 65,
+                "hitEffect": "hitLancer",
+                "lightningSpacing": 35,
+                "lightningLength": 5,
+                "lightningDelay": 1.1,
+                "lightningLengthRand": 15,
+                "lightningDamage": 50,
+                "lightningAngleRand": 40,
+                "lightningColor": "b468ff"
+            }
+        }
+    ]
+    //"research": "duo"
+}
+// "lightningSpacing": 35,
+// "lightningLength": 5,
+// "lightningDelay": 1.1,
+// "lightningLengthRand": 15,
+// "lightningDamage": 50,
+// "lightningAngleRand": 40,
+// "largeHit": true,
+// "reloadMultiplier": 0.5,
+// "shootEffect": "greenLaserCharge",
+// //"healPercent": 0.001,//治愈百分比
+// "collidesTeam": true,
+// "pierce": true,
+// "sideAngle": 15,
+// "sideWidth": 0,
+// "sideLength": 0,
+// "speed": 4,
+// "lifetime": 65,
+// "status": "burning",
