@@ -9,7 +9,7 @@
     "baseRotateSpeed": 5, //基础转速
     "hitSize": 88, //单位的大小
    // "turnCursor": true,
-    "health": 500000, //血量
+    "health": 5000000, //血量
     //"itemCapacity": 0, //容量
     //"cellTrnsY": 1,
     "flying": true, //飞行
