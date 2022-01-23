@@ -1,5 +1,5 @@
 //guiY
-const ColourfulForceFieldAbilityy = (radius, regen, max, cooldown) => {
+const ColourfulForceFieldAbility2 = (radius, regen, max, cooldown) => {
     var realRad;
     var paramUnit;
     var paramField;
@@ -19,6 +19,9 @@ const ColourfulForceFieldAbilityy = (radius, regen, max, cooldown) => {
         }
     });
     const ability = new JavaAdapter(ForceFieldAbility, {
+        localized() {
+            return Core.bundle.get("ability.creator-abilitF");
+        },
         update(unit) {
             realRad = this.radiusScale * this.radius;
             paramUnit = unit;
@@ -27,7 +30,7 @@ const ColourfulForceFieldAbilityy = (radius, regen, max, cooldown) => {
             this.super$update(unit);
         },
         copy() {
-            return ColourfulForceFieldAbilityy(radius, regen, max, cooldown);
+            return ColourfulForceFieldAbility2(radius, regen, max, cooldown);
         },
         draw(unit) { 
             this.super$draw(unit);
@@ -49,4 +52,4 @@ const ColourfulForceFieldAbilityy = (radius, regen, max, cooldown) => {
     }, radius, regen, max, cooldown);
     return ability;
 };
-exports.ColourfulForceFieldAbilityy = ColourfulForceFieldAbilityy;
+exports.ColourfulForceFieldAbility2 = ColourfulForceFieldAbility2;

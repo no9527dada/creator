@@ -14,9 +14,9 @@ const {
 const rainbowRegions = [];
 
 
-const liziduizhuangji = extend(GenericSmelter, "z-1liziduizhuangji", {});
+const liziduizhuangji = extend(GenericCrafter, "z-1liziduizhuangji", {});
 liziduizhuangji.buildType = prov(() => {
-    return new JavaAdapter(GenericSmelter.SmelterBuild, {
+    return new JavaAdapter(GenericCrafter.GenericCrafterBuild, {
         draw() {
             this.super$draw();
             Draw.blend();
@@ -34,18 +34,6 @@ liziduizhuangji.buildType = prov(() => {
 
     }, liziduizhuangji);
 });
-
-/*         chuangshiji.buildType = prov(() => {
-            return new JavaAdapter(GenericCrafter.GenericCrafterBuild, {
-                draw(){
-                    Draw.rect(Core.atlas.find("btm-pu-b"), this.x, this.y);
-                    Draw.rect(Core.atlas.find("btm-pu-1"), this.x, this.y, 90 + this.totalProgress * 1.5)
-                    Draw.rect(Core.atlas.find("btm-pu-2"), this.x, this.y, 90 - this.totalProgress * 3);
-                    Draw.rect(Core.atlas.find("btm-pu-top"),this.x, this.y);
-                },
-            }, chuangshiji);
-        }); */
-
 liziduizhuangji.health = 2800;//粒子机
 liziduizhuangji.size = 4;
 liziduizhuangji.hasPower = true;
@@ -53,13 +41,13 @@ liziduizhuangji.hasItems = true;;
 liziduizhuangji.buildCostMultiplier = 30;
 liziduizhuangji.itemCapacity = 3000;
 liziduizhuangji.craftTime = 10800;
-liziduizhuangji.updateEffect = Fx.none;
-liziduizhuangji.updateEffectChance = 0.05;
+liziduizhuangji.updateEffect = Fx.mineHuge;
+liziduizhuangji.updateEffectChance = 0.1;
 liziduizhuangji.consumes.power(13333.333333);
 liziduizhuangji.consumes.items(new ItemStack.with(
     monengjing3, 3,
     weijing5, 2,
-    weijing4, 15,
+    weijing4, 50,
     weijing3, 90,
     weijing2, 320,
     weijing1, 750,

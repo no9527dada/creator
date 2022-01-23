@@ -157,7 +157,8 @@ function MultiCrafterBuild() {
         for(var j = 0, len = inputLiquids.length; j < len; j++) eLiquids.remove(inputLiquids[j].liquid, inputLiquids[j].amount);
         for(var a = 0, len = outputItems.length; a < len; a++) {
             for(var aa = 0, amount = outputItems[a].amount; aa < amount; aa++) {
-                var oItem = outputItems[a].item
+                var oItem = outputItems[a].item;
+                this.produced(oItem);
                 if(!this.put(oItem)) {
                     if(!eItems.has(oItem)) this.toOutputItemSet.add(oItem);
                     eItems.add(oItem, 1);
@@ -196,6 +197,7 @@ function MultiCrafterBuild() {
         if(this.timer.get(this.block.dumpTime) && len > 0) {
             for(var i = 0; i < len; i++) {
                 var candidate = que.get((i + itemEntry) % len);
+                this.produced(candidate);
                 if(this.put(candidate)) {
                     eItems.remove(candidate, 1);
                     if(!eItems.has(candidate)) this.toOutputItemSet.remove(candidate);

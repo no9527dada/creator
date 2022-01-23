@@ -117,7 +117,7 @@ Events.on(ContentInitEvent, cons(e => {
         )
     });
 })); 
-
+const DC = require("paota/DC");
 const SSY1Maps4 = new SectorPreset("mini-1", SSY1, 4);
 SSY1Maps4.alwaysUnlocked = false;
 SSY1Maps4.useAI = false;
@@ -128,7 +128,8 @@ Events.on(ContentInitEvent, cons(e => {
     lib.addToResearch(SSY1Maps4, {
         parent: SSY1.name,
         objectives: Seq.with(
-            new Objectives.Research(GT.GThMaps3)//研究魔核阵
+            new Objectives.Research(GT.GThMaps3),//研究魔核阵
+            new Objectives.Research(DC.tiansha)//研究天煞
         )
     });
 })); 
@@ -185,22 +186,36 @@ Events.on(ContentInitEvent, cons(e => {
     });
 })); 
 
+const SSY2Maps2 = new SectorPreset("chuangzhanji", SSY2, 2);
+SSY2Maps2.alwaysUnlocked = false;
+SSY2Maps2.captureWave = 999999999;
+SSY2Maps2.difficulty = 13;
+SSY2Maps2.localizedName = Core.bundle.format("planet.creator.CZHJ2");//创战纪2
+exports.SSY2Maps2 = SSY2Maps2;
+Events.on(ContentInitEvent, cons(e => {
+    lib.addToResearch(SSY2Maps2, {
+        parent: SSY2.name,
+        objectives: Seq.with(
+            new Objectives.SectorComplete(GN.GNoeMaps31)
+        )
+    });
+})); 
 
 
-const SSY3 = new JavaAdapter(Planet, {
-    load() {
-        this.meshLoader = prov(() => new HexMesh(SSY3, 6));
-        this.super$load();
-    }
-}, "ssatellite3", SSY1, 0.3);
-sS.planetGrid(SSY1, 0);
-SSY3.generator = new SerpuloPlanetGenerator();
-SSY3.atmosphereColor = Color.valueOf("ffa1a1");
-SSY3.atmosphereRadIn = 0.02;
-SSY3.atmosphereRadOut = 0.1;
-//SSY3.localizedName = Core.bundle.format("planet.creator.SSY3");
-SSY3.startSector = 1;
-SSY3.orbitRadius = 5;
-SSY3.accessible = false
-//----------------------------------------------------------------------------------------------------------------------------------------------
+// const SSY3 = new JavaAdapter(Planet, {
+//     load() {
+//         this.meshLoader = prov(() => new HexMesh(SSY3, 6));
+//         this.super$load();
+//     }
+// }, "ssatellite3", SSY1, 0.3);
+// sS.planetGrid(SSY1, 0);
+// SSY3.generator = new SerpuloPlanetGenerator();
+// SSY3.atmosphereColor = Color.valueOf("ffa1a1");
+// SSY3.atmosphereRadIn = 0.02;
+// SSY3.atmosphereRadOut = 0.1;
+// //SSY3.localizedName = Core.bundle.format("planet.creator.SSY3");
+// SSY3.startSector = 1;
+// SSY3.orbitRadius = 5;
+// SSY3.accessible = true
+// //----------------------------------------------------------------------------------------------------------------------------------------------
 

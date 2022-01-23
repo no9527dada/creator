@@ -34,6 +34,14 @@ GNoeMaps1.localizedName = Core.bundle.format("planet.creator.jl");//降临
 lib.addToResearch(GNoeMaps1, { parent: GNoe.name, });
 exports.GNoeMaps1 = GNoeMaps1;
 
+const GNoeMaps2 = new SectorPreset("jianglin2", GNoe, 2);
+GNoeMaps2.captureWave = 90;
+GNoeMaps2.difficulty = 1;
+GNoeMaps2.localizedName = Core.bundle.format("planet.creator.jl2");//降临2
+exports.GNoeMaps2 = GNoeMaps2;
+lib.addToResearch(GNoeMaps2, { parent: GNoe.name, });
+exports.GNoeMaps2 = GNoeMaps2;
+
 const GNoeMaps23 = new SectorPreset("GNoeYX23", GNoe, 23);
 GNoeMaps23.captureWave = 63;
 GNoeMaps23.difficulty = 1;
@@ -48,6 +56,25 @@ Events.on(ContentInitEvent, cons(e => {
         )
     });
 }));
+
+
+const GNoeMaps4 = new SectorPreset("xiwang2", GNoe, 4);
+GNoeMaps4.captureWave = 71;
+GNoeMaps4.difficulty = 1;
+GNoeMaps4.localizedName = Core.bundle.format("planet.creator.xw2");//希望2
+exports.GNoeMaps4 = GNoeMaps4;
+Events.on(ContentInitEvent, cons(e => {
+    lib.addToResearch(GNoeMaps4, {
+        parent: 'jianglin2',
+        objectives: Seq.with(
+            new Objectives.SectorComplete(GNoeMaps2),
+            //new Objectives.Research(DC.DianHu)
+        )
+    });
+}));
+
+
+
 
 // const GNoeMaps9527 = new SectorPreset("9527", GNoe, 150);
 // GNoeMaps9527.captureWave = 63;
@@ -79,7 +106,7 @@ Events.on(ContentInitEvent, cons(e => {
         )
     });
 }));
-
+const { shimoxiji } = require('shimoxi');
 const GNoeMaps0 = new SectorPreset("GNoebingyuan0", GNoe, 0);
 GNoeMaps0.captureWave = 50;
 GNoeMaps0.difficulty = 1;
@@ -89,8 +116,8 @@ Events.on(ContentInitEvent, cons(e => {
     lib.addToResearch(GNoeMaps0, {
         parent: 'GNoexiwang15',
         objectives: Seq.with(
-            new Objectives.SectorComplete(GNoeMaps15),//占领希望
-            new Objectives.Research(GC.shimoxiji)
+            new Objectives.SectorComplete(GNoeMaps4),//占领希望2
+            new Objectives.Research(shimoxiji)
         )
     });
 }));
@@ -119,7 +146,7 @@ Events.on(ContentInitEvent, cons(e => {
     lib.addToResearch(GNoeMaps6, {
         parent: 'GNoexiwang15',
         objectives: Seq.with(
-            new Objectives.SectorComplete(GNoeMaps15),//占领希望
+            new Objectives.SectorComplete(GNoeMaps0),//占领冰原
             new Objectives.Research(GC.tanbanyasuoji)
         )
     });

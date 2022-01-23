@@ -61,15 +61,18 @@ BGC.constructTime = 180;
 const ability1 = require('all/ability');
 const ability2 = require('all/ability-oct2');
 UnitTypes.gamma.abilities.add(new RepairFieldAbility(5, 60 * 3, 1));//原版3级飞机
-//UnitTypes.gamma.abilities.add(ability1.ColourfulForceFieldAbilityy(40, 3, 700, 600));//原版3级飞机
 UnitTypes.oct.abilities.add(new UnitSpawnAbility(UnitTypes.poly, 3600, 19.25, -31.75), new UnitSpawnAbility(UnitTypes.flare, 60, -19.25, -31.75));//t5护盾飞机
 //UnitTypes.oct.abilities.add(ForceFieldAbility(280, 4, 7000, 60 * 8), new RepairFieldAbility(280, 60 * 2, 140));//t5护盾飞机
 const ability = require("other/abilityy");
 
 const zdan = BasicBulletType(8, 12)
+// zdan.collidesTiles = true
+// zdan.collides = true;
+// zdan.collidesAir = true;
 zdan.width = 6.5;
 zdan.height = 11;
 zdan.lifetime = 50;
+zdan.scaleVelocity = false;//指哪打哪
 zdan.frontColor = Color.valueOf("d6ffd1");
 zdan.lightning = 3;//闪电根数
 zdan.lightningLength = 5;//闪电长度
@@ -78,8 +81,8 @@ zdan.lightningDamage = 5;//闪电伤害
 zdan.shootEffect = Fx.shootSmall;
 zdan.smokeEffect = Fx.shootSmallSmoke;
 zdan.buildingDamageMultiplier = 0.01;
-zdan.healPercent = 3;//治愈建筑百分比
-zdan.homingPower = 0.04;
+//zdan.healPercent = 3;//治愈建筑百分比
+zdan.homingPower = 0.04;//追踪能力值
 exports.zdan = zdan;
 //------------------------
 const gammaSplus = new UnitType('gammaSplus');
@@ -98,7 +101,7 @@ gammaSplus.health = 260;
 gammaSplus.engineOffset = 6;
 gammaSplus.hitSize = 20;
 gammaSplus.commandLimit = 8;
-gammaSplus.abilities.add(ability1.ColourfulForceFieldAbilityy(40, 3, 700, 600));//彩色护盾
+gammaSplus.abilities.add(ability1.ColourfulForceFieldAbility2(40, 3, 700, 600));//彩色护盾
 gammaSplus.abilities.add(new RepairFieldAbility(5, 60 * 3, 1));//自身回血
 gammaSplus.weapons.add(
     (() => {
@@ -157,31 +160,35 @@ ax1.defaultController = prov(() => new MinerAI()); ax1.ammoType = new ItemAmmoTy
 ax1.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
 lib.addToResearch(ax1, { parent: Blocks.airFactory.name, });
 //-----------------------------------------------------------------------------------------
+const kuangjiAI2 = require("all/kuangjiAI2");
 const ax2 = new UnitType('2kuangji');
-ax2.defaultController = prov(() => new MinerAI()); ax2.ammoType = new ItemAmmoType(Items.blastCompound, 1);
+ax2.defaultController = prov(() => new kuangjiAI2.kuangjiAI2()); ax2.ammoType = new ItemAmmoType(Items.blastCompound, 1);
 ax2.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
 
+const kuangjiAI3 = require("all/kuangjiAI3");
 const ax3 = new UnitType('3kuangji');
 ax3.abilities.add(new RepairFieldAbility(Infinity, 60, 8 * 8));
-ax3.defaultController = prov(() => new MinerAI()); ax3.ammoType = new ItemAmmoType(Items.blastCompound, 2);
+ax3.defaultController = prov(() => new kuangjiAI3.kuangjiAI3()); ax3.ammoType = new ItemAmmoType(Items.blastCompound, 2);
 ax3.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
 
+const kuangjiAI4 = require("all/kuangjiAI4");
 const ax4 = new UnitType('4kuangji');
 ax4.abilities.add(new ForceFieldAbility(40, 110, 60 * 1, 160));//(40半径, 60重新生成, 500盾容, 60 * 6冷却)20f, 40f, 60f * 5, 60f//Infinity 无穷大
-ax4.defaultController = prov(() => new MinerAI()); ax4.ammoType = new ItemAmmoType(Items.blastCompound, 2);
+ax4.defaultController = prov(() => new kuangjiAI4.kuangjiAI4()); ax4.ammoType = new ItemAmmoType(Items.blastCompound, 2);
 ax4.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
 
+const kuangjiAI5 = require("all/kuangjiAI5");
 const ax5 = new UnitType('5kuangji');
 ax5.payloadCapacity = (4.5 * 4.5) * Vars.tilePayload;
-ax5.defaultController = prov(() => new MinerAI()); ax5.ammoType = new PowerAmmoType(18000);
+ax5.defaultController = prov(() => new kuangjiAI5.kuangjiAI5()); ax5.ammoType = new PowerAmmoType(18000);
 ax5.constructor = prov(() => extend(UnitTypes.oct.constructor.get().class, {}));
 
-
-
-const ax6 = new UnitType('6kuangji');
+const kuangjiAI6 = require("all/kuangjiAI6");
+const ax6 = new UnitType('6kuangji')    ;
 ax6.payloadCapacity = (5.8 * 5.8) * Vars.tilePayload;
 ax6.ammoType = new PowerAmmoType(9000);
-ax6.defaultController = prov(() => new MinerAI());
+ax6.abilities.add(new ForceFieldAbility(56, 110, 60 * 1, 160));//(40半径, 60重新生成, 500盾容, 60 * 6冷却)20f, 40f, 60f * 5, 60f//Infinity 无穷大
+
 lib.addToResearch(ax6, {
     parent: 'toxopid',
     requirements: ItemStack.with(
@@ -193,11 +200,16 @@ lib.addToResearch(ax6, {
         guijingti, 180000,
     ),
 });
-ax6.constructor = prov(() => extend(UnitTypes.oct.constructor.get().class, {}));
+
+//ax6.defaultController = prov(() => new MinerAI());
+ax6.defaultController = prov(() => new kuangjiAI6.kuangjiAI6());
+ax6.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
 
 const yunshu = new UnitType('yunshu');
 yunshu.defaultController = prov(() => new MinerAI());
 yunshu.constructor = prov(() => extend(UnitTypes.mono.constructor.get().class, {}));
+
+
 //---------------------------------------------------------------
 const SB = extend(BombBulletType, {});
 SB.amage = 0;

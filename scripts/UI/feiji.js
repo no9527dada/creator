@@ -59,6 +59,8 @@ const invincibleBulletType = (() => {
             }
         },
     });
+    //bt.collidesTeam = true//子弹碰撞
+    bt.scaleVelocity = true;//开启指哪打哪
     bt.width= 10;
     bt.height= 16;
     bt.damage = Infinity;
@@ -138,14 +140,18 @@ exports.mechh = mechh;
 
 const block99 = extendContent(CoreBlock, "hexin", //叛变核心
     {
-        isPlaceable() { return lib.techDsAvailable() && this.super$isPlaceable(); },
-        canBreak(tile) { return Vars.state.teams.cores(tile.team()).size > 1; },
-        canReplace(other) { return other.alwaysReplace; },
-        canPlaceOn(tile, team) { return true; },
-        placeBegan(tile, previous) { },
-        beforePlaceBegan(tile, previous) { },
+        setStats(){
+            this.stats.add(Stat.buildTime, 0, StatUnit.seconds);
+            this.super$setStats();
+        },
+ isPlaceable() { return lib.techDsAvailable() && this.super$isPlaceable(); },
+ canBreak(tile) { return Vars.state.teams.cores(tile.team()).size > 1; },
+ canReplace(other) { return other.alwaysReplace; },
+ canPlaceOn(tile, team) { return true; },
+ placeBegan(tile, previous) { },
+ beforePlaceBegan(tile, previous) { },
 
-        drawPlace(x, y, rotation, valid) { },
+ drawPlace(x, y, rotation, valid) { },
     });
 // block99.config(java.lang.Integer, lib.cons2((tile, i) => {
 //     tile.team = Team.get(i);

@@ -6,14 +6,15 @@ const {
     moliyeshoujiqi1, moliyeshoujiqi2, moliyehunheji, lengdongyehunheji, zhiwucuiqugongchang, zhiwucuiqugongchang2, molijinghuatilianji, qiangxiaolengqueyehunheji,
     wenshiqi, molishizhizaoqi, monengjingdamoji0, jimonengjinglianzhiqi1, jimonengjinglianzhiqi2, jimonengjinglianzhiqi3, jimonengjinglianzhiqi4,
     chujishiyingronglu, shiyingronglu, guilu, guijingtichengxingji, guijingtihechengji, guijingtigongchang,
-    shimoxiji, budingjiagongchang, budingjiagongchang2, jinfentilianji, jinchengxingji, jinchengxingji2, zijinggongchang, xiaofentilianji,
+     budingjiagongchang, budingjiagongchang2, jinfentilianji, jinchengxingji, jinchengxingji2, zijinggongchang, xiaofentilianji,
     tanbanyasuoji, tanbanyasuoji2, zuanjingjiagongchang, zhayaozhizaoji, luzhayasuoji, jhgtbzwj,
-    hejin2, duochonbuji, duochongsugangji, gaojipeiyangji, feiliaoji, qianghuaronglu, zhuanhuantai, zizhuanTu,
+    hejin2,budingjiagongchang3, duochonbuji, duochongsugangji, gaojipeiyangji, feiliaoji, qianghuaronglu, zhuanhuantai, zizhuanTu,
 } = require('GC');
 const { weijing4GC, } = require('all/draw');
 const {
     powerSource1, weichenshoujiqi, chuangshizhishen, wupinyuan,
 } = require('GC2');
+const { shimoxiji } = require('shimoxi');
 // const {
 //    a,b,c,d,e,f,
 // } = require('v6');
@@ -251,7 +252,7 @@ Events.on(ClientLoadEvent, cons((e) => {
             {
                 icon: () => myIcon4, blocks: [
                     chujishiyingronglu, shiyingronglu, guijingtichengxingji, guijingtihechengji, guijingtigongchang,
-                    shimoxiji, budingjiagongchang, budingjiagongchang2, jinfentilianji, jinchengxingji, jinchengxingji2, zijinggongchang, xiaofentilianji,
+                    shimoxiji, budingjiagongchang, budingjiagongchang2, budingjiagongchang3,jinfentilianji, jinchengxingji, jinchengxingji2, zijinggongchang, xiaofentilianji,
                     tanbanyasuoji, tanbanyasuoji2, zuanjingjiagongchang, zhayaozhizaoji,  jhgtbzwj,luzhayasuoji,
                 ]
             },

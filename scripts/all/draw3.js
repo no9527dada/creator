@@ -21,6 +21,10 @@ function removeBuild(team) {
 }
 
 var block = extend(MendProjector, '15664^', {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
     canPlaceOn(tile, team) {
         if (!canBuild(team)) {
             return false;
@@ -40,6 +44,13 @@ var block = extend(MendProjector, '15664^', {
     //     }
     // },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -58,7 +69,7 @@ block.buildType = prov(() => {
         // create(block, team) {
         //     this.super$create(block, team);
         //     addBuild(team);
-        // },
+        // }, 
 
         draw() {
             this.super$draw();

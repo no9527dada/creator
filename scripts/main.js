@@ -1,4 +1,5 @@
-
+require('banmod');
+//------------------------------------------------
 require('danwei');
 require('v6');
 require('wupin');
@@ -12,7 +13,8 @@ require('next-wave2');
 require('gongneng');
 require('chongzhigongju');
 require('GC');
-require('3JiChuDai');require('3JiChuDai2');
+require('3JiChuDai');
+require('3JiChuDai2');
 require('GC2');
 require('danwei2');
 require('paota/DC');
@@ -23,8 +25,7 @@ require('all/draw3');
 require('FenNei');
 require('KongJianQiao2');
 require('KongJianQiao1');
-
-//require('boom');
+//----------------------------------------------
 //星球
 require('xingqiu');
 require('GradeNoe');//等级1
@@ -33,12 +34,11 @@ require('GradeTwo');//等级2
  require('WormsNest');//虫巢穴
 // require('alwaysUnlocked');
 require('gengxing');//更新
+require('UI/ui');
 Vars.mods.locateMod("creator").meta.version += "----" +  Core.bundle.format("planet.creator.MODname");
+//Vars.mods.locateMod("creator").meta.version += "----" +  "[violet]创世神V7-creator[]";
 
-
-
-
-
+    
 
 
 
@@ -164,51 +164,6 @@ var myBlock = extendContent(PowerNode, 'nengliangta', {
 	You should have received a copy of the GNU General Public License
 	along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
-
-const ui = require("UI/library");
-require("UI/areas");
-Events.on(ClientLoadEvent, ui.load);
-
-var target = null;
-var display = null;
-
-const updateTarget = Q => {
-	display.clear();
-	if (!Q) return;
-	
-	const items = Vars.content.items();
-	const core = Vars.player.team().core();
-	var i = 0;
-	items.each(item => {
-        display.image(item.icon(Cicon.small)).size(15/*资源贴图大小 */);
-        display.label(() => core == null ? "0" : UI.formatAmount(core.items.get(item))).padRight(3/*UI的间隔 */).left();
-        i++;
-			if (i % 6/*资源一排的数量 */ == 0) {
-				display.row();
-		    }
-    });
-};
-
-ui.addTable("top", "creator", table => {
-	display = table;
-	table.table().center().bottom();
-	table.background(Tex.buttonTrans);
-	//table.visibility = () => !!target && target.health > 0;
-	table.touchable = Touchable.disabled
-});
-
-Events.on(WorldLoadEvent, () => {
-	target = null;
-});
-
-
-// Find targets
-Events.run(Trigger.update, () => {
-	const p = Vars.player;
-		target = p;
-		updateTarget(target);
-});
-
 
 
 

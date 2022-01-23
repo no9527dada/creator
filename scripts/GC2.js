@@ -43,10 +43,14 @@ function createBuildLimit(limit) {
         removeBuild: removeBuild,
     }
 }
-
+exports.createBuildLimit = createBuildLimit;
 const DianChi = createBuildLimit(5);//4级电池
 const jidianchi4 = extend(Battery, "4jidianchi", {
-
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
+	
     canPlaceOn(tile, team) {
         if (!DianChi.canBuild(team)) {
             return false;
@@ -54,6 +58,13 @@ const jidianchi4 = extend(Battery, "4jidianchi", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!DianChi.canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -113,8 +124,12 @@ exports.jidianchi4 = jidianchi4;
 
  // const wu = extend(Wall, "wu-di-qiang", {canBreak(tile) { return false; },});
  
-const CuangDian = createBuildLimit(3);//创世电
+const CuangDian = createBuildLimit(1);//创世电
 const powerSource1 = extend(PowerSource, "power-source1", {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
     canBreak(tile) { return false; },//不可拆
     canPlaceOn(tile, team) {
         if (!CuangDian.canBuild(team)) {
@@ -123,10 +138,17 @@ const powerSource1 = extend(PowerSource, "power-source1", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!CuangDian.canBuild(Vars.player.team())) {
             this.drawPlaceText(
-                Core.bundle.format("message.creator.ABCD", 3),
+                Core.bundle.format("message.creator.ABCD", 1),
                 x, y, valid
             );
         }
@@ -173,6 +195,10 @@ exports.powerSource1 = powerSource1;
 
 const CuangWei = createBuildLimit(2);
 const weichenshoujiqi = extend(GenericCrafter, "weichenshoujiqi", {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
     canBreak(tile) { return false; },//不可拆    //创微收集器
     canPlaceOn(tile, team) {
         if (!CuangWei.canBuild(team)) {
@@ -181,6 +207,14 @@ const weichenshoujiqi = extend(GenericCrafter, "weichenshoujiqi", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!CuangWei.canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -241,9 +275,23 @@ weichenshoujiqi.category = Category.crafting;
 lib.addToResearch(weichenshoujiqi, { parent: GCC.jiweijinggongchang1.name, });
 exports.weichenshoujiqi = weichenshoujiqi;
 //-----------------------------------------------------------
-
+exports.CuangShenBubble = (() => {
+var D= new Effect(20, e => {
+    Draw.color(Color.valueOf("ECB000"));Lines.stroke(e.fout() + 0.2);
+    Angles.randLenVectors(e.id, 2, 1 + 20 * e.fout(), e.rotation, 120, (x, y) => {
+        Lines.circle(e.x + x, e.y + y, 1 + e.fin() * 3);
+        Drawf.tri(e.x + x, e.y + y, e.fslope() * 3 + 1, e.fslope() * 3 + 1, Mathf.angle(x, y));
+    });
+});
+return D;
+})();
 const CuangShen = createBuildLimit(1);
-const chuangshizhishen = extend(GenericSmelter, "z-5chuangshizhishen", {
+const chuangshizhishen = extend(GenericCrafter, "z-5chuangshizhishen", {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
+	
     canBreak(tile) { return false; },//不可拆   //创世神棺材
     canPlaceOn(tile, team) {
         if (!CuangShen.canBuild(team)) {
@@ -252,6 +300,13 @@ const chuangshizhishen = extend(GenericSmelter, "z-5chuangshizhishen", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!CuangShen.canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -291,7 +346,7 @@ chuangshizhishen.canOverdrive = false;;
 chuangshizhishen.buildCostMultiplier = 200;
 chuangshizhishen.itemCapacity = 50;
 chuangshizhishen.craftTime = 18000;
-chuangshizhishen.updateEffect = Fx.smoke;
+chuangshizhishen.updateEffect = exports.CuangShenBubble ;
 chuangshizhishen.updateEffectChance = 0.5;
 chuangshizhishen.consumes.items(new ItemStack.with(
     chuangshizhixing, 50, yuanshencanpian, 5)
@@ -307,12 +362,22 @@ chuangshizhishen.requirements = ItemStack.with(
 );
 chuangshizhishen.buildVisibility = BuildVisibility.shown;
 chuangshizhishen.category = Category.crafting;
-lib.addToResearch(chuangshizhishen, { parent: GCC.chuangshiyujie.name, });
+lib.addToResearch(chuangshizhishen, { 
+    parent: GCC.chuangshiyujie.name, 
+    requirements: ItemStack.with(  
+        jin, 5000/4*200,
+    ),
+});
 exports.chuangshizhishen = chuangshizhishen;
 
 //-----------------------------------------------------------
 const CuangGuan = createBuildLimit(1);
 const wupinyuan = extend(ItemSource, "z-6wupinyuan", {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
+	
     canBreak(tile) { return false; },//不可拆   ///创世神 物品源
     canPlaceOn(tile, team) {
         if (!CuangGuan.canBuild(team)) {
@@ -321,6 +386,13 @@ const wupinyuan = extend(ItemSource, "z-6wupinyuan", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!CuangGuan.canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -369,6 +441,10 @@ exports.wupinyuan = wupinyuan;
 //-----------------------------------------------------------
 const A7 = createBuildLimit(2);//抽奖机
 const choujiangji = extend(Separator, "zzz-choujiangji", {
+    setStats(){
+        this.super$setStats();
+        this.stats.remove(Stat.buildTime);
+    },
     canPlaceOn(tile, team) {
         if (!A7.canBuild(team)) {
             return false;
@@ -376,6 +452,13 @@ const choujiangji = extend(Separator, "zzz-choujiangji", {
         return this.super$canPlaceOn(tile, team);
     },
     drawPlace(x, y, rotation, valid) {
+        let player = Vars.player;
+        let rules = Vars.state.rules;
+        let team = player.team();
+
+        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
+            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
+        }
         if (!Vars.world.tile(x, y)) { return; }
         if (!A7.canBuild(Vars.player.team())) {
             this.drawPlaceText(
@@ -937,42 +1020,4 @@ lib.addToResearch(display, { parent: Blocks.largeLogicDisplay.name, });
 exports.display = display;
 //-----------------------------------------------------------------
 
-
-
-
-//@Le Zooom
-//缩放加强
-const defaultMinZoomLim = Vars.renderer.minZoom;
-const defaultMaxZoomLim = Vars.renderer.maxZoom;
-print("default min zoom: " + defaultMinZoomLim);
-print("defaultn max zoom: " + defaultMaxZoomLim);
-
-const minZoomLim = 0.5;
-const maxZoomLim = 25;
-
-// default extended zoom limits
-const minZoom = 0.75;
-const maxZoom = 20;
-
-function resetZoomLim(toOriginal) {
-    if (toOriginal) {
-        Vars.renderer.minZoom = defaultMinZoomLim;
-        Vars.renderer.maxZoom = defaultMaxZoomLim;
-    } else {
-        Vars.renderer.minZoom = minZoomLim;
-        Vars.renderer.maxZoom = maxZoomLim;
-    }
-}
-
-
-function updateZoom(min, max) {
-    Vars.renderer.minZoom = min;
-    Vars.renderer.maxZoom = max;
-}
-
-if (!Vars.headless) {
-    updateZoom(minZoomLim, maxZoomLim);
-}
-
-//核心物资显示
 

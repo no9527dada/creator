@@ -1,5 +1,6 @@
 //---------------------@滞人编写
 const lib = require('lib');
+require('chaojijiasuyi');
 //电镀微晶导管防自然
 const GC = require('GC');
 lib.setBuildingSimple(GC.conduit21, ArmoredConduit.ArmoredConduitBuild, {
@@ -209,6 +210,7 @@ const healed = new IntSet();
             },
             draw(){
                 this.super$draw();
+                if(!this.consValid()) return;
                 const tilesize = Vars.tilesize;
                 var f = 1 - (Time.time / 100) % 1;
                 Draw.color(baseColor, phaseColor, getPhaseHeat());
@@ -222,6 +224,7 @@ const healed = new IntSet();
                 Draw.reset();
             },
             updateTile() {
+            	if(!this.consValid()) return;
                 const speedBoost = 0.99999;
                 const duration = reload + 1;
                 Vars.indexer.eachBlock(this, range, boolf(other => true), cons(other => {

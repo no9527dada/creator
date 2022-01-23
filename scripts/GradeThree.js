@@ -133,6 +133,20 @@ Events.on(ContentInitEvent, cons(e => {
         )
     });
 })); 
+const GThMaps7 = new SectorPreset("chuangshiji", GThree, 7);
+GThMaps7.captureWave = 720;
+GThMaps7.difficulty = 13;
+GThMaps7.localizedName = Core.bundle.format("planet.creator.chuangshiji");//创世纪2
+exports.GThMaps7 = GThMaps7;
+Events.on(ContentInitEvent, cons(e => {
+    lib.addToResearch(GThMaps7, {
+        parent: 'ruqin',//入侵
+        objectives: Seq.with(
+            new Objectives.SectorComplete(GThMaps4),//入侵
+            new Objectives.Research(pao2.xipao2)
+        )
+    });
+})); 
 
 const GThMaps6 = new SectorPreset("huangwu", GThree, 6);
 GThMaps6.captureWave = 70;
@@ -141,7 +155,7 @@ GThMaps6.localizedName = Core.bundle.format("planet.creator.huangwu");//荒芜�
 exports.GThMaps6 = GThMaps6;
 Events.on(ContentInitEvent, cons(e => {
     lib.addToResearch(GThMaps6, {
-        parent: 'Genesis',//创世纪
+        parent: 'chuangshiji',//创世纪
         objectives: Seq.with(
             new Objectives.Research(GThMaps5)//研究创世纪//只需研究就可解锁 不用占领
         )
