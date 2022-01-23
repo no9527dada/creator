@@ -3,7 +3,7 @@
 	//"description": "",
 	"buildCostMultiplier":2,
 	"ambientSound":"chaosu",
-	"type": "OverdriveProjector",
+	//"type": "OverdriveProjector",
 	"health": 500,//生命
 	"size": 3,//占地边长支持1~9对应贴图1x1=32x32像素.
 	"range": 200,//范围

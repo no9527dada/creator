@@ -3,10 +3,10 @@
 	//"description": "可以给相邻的建筑加速",
 	"buildCostMultiplier":2,
 	"ambientSound":"chaosu",
-	"type": "OverdriveProjector",
-	"health": 250,//生命
+	//"type": "OverdriveProjector",
+	"health": 1250,//生命
 	"size": 1,//占地边长支持1~9对应贴图1x1=32x32像素.
-	"range": 13,//范围
+	"range": 12,//范围
 "speedBoostPhase":0 ,//加速00加成
 	"useTime": 60,//使用一个物品加成时间
 	"phaseRangeBoost": 0,// 加速范围百分比

@@ -23,7 +23,7 @@
         "type": "ContinuousLaserBulletType",
         "hitEffect": "hitMeltdown",
         "length": 320,
-        "damage": 140,
+        "damage": 80,
         "incendChance": 0.8,
         "incendSpread": 5,
         "incendAmount": 1,

@@ -1,0 +1,70 @@
+{
+    "name": "花洒",
+    "description": "消防专用，对敌人无法造成伤害.内置储水量惊人",
+    // "type": "LiquidTurret",
+    "size": 1,
+    "health": 500,
+    "buildCostMultiplier": 1,
+    "shootEffect": "shootLiquid",
+    "range": 110,
+    "inaccuracy": 360,
+    "reloadTime": 5,
+    "shots": 20,
+    "targetAir": false,
+    "targetGround": false,
+    "velocityInaccuracy": 0.1,
+    "recoilAmount": 1,
+    "restitution": 0.04,
+    "shootCone": 45,
+    "liquidCapacity": 500,
+    "consumes": {
+        "power": 3
+    },
+    "ammoTypes": {
+        "water": {
+            "type": "LiquidBulletType",
+            "liquid": "water",
+            // "lifetime": 100,
+            "speed": 4,
+            "knockback": 0,
+            "puddleSize": 8,
+            "orbSize": 4,
+            "drag": 0.001,
+            "ammoMultiplier": 0.4,
+            "statusDuration": 240,
+            // "damage": 0.2
+        },
+        "cryofluid": {
+            "type": "LiquidBulletType",
+            "liquid": "cryofluid",
+            // "lifetime": 100,
+            "speed": 4,
+            "knockback": 0,
+            "puddleSize": 8,
+            "orbSize": 4,
+            "drag": 0.001,
+            "ammoMultiplier": 0.4,
+            "statusDuration": 240,
+            // "damage": 0.2
+        }
+    },
+    "requirements": [{
+            "item": "metaglass",
+            "amount": 75
+        },
+        {
+            "item": "lead",
+            "amount": 150
+        }, 
+        {
+            "item": "shimoxi",
+            "amount": 15
+        }, 
+        {
+            "item": "guijingti",
+            "amount": 30
+        }
+    ],
+    "category": "turret",
+    "research": "wave"
+}

@@ -12,7 +12,7 @@
                 {
                     "items":
                     [  //{"item":"copper","amount" :1},
-                        {"item":"dabaoyedan","amount" :500},
+                        {"item":"dabaoyedan","amount" :200},
                         {"item":"guijingti","amount" :1300},
                         {"item":"titanium","amount" :3000},
                         {"item":"jin","amount" :2500},

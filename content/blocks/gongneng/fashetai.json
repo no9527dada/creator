@@ -8,7 +8,7 @@
     "canOverdrive": false,
     "itemCapacity": 5,
     "alwaysUnlocked":true,
-    "buildVisibility": "campaignOnly",
+   // "buildVisibility": "campaignOnly",
     "consumes": {
         "power": 900
     },

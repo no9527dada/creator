@@ -5,7 +5,7 @@
     "oreScale": 24, //自动生成的默认规模
     "oreThreshold": 0.9, ////自动生成的默认密集度
 	//"name":"石英",
-	"playerUnmineable": false,
+	"playerUnmineable": true,
 	"variants": 3//贴图数量
 	"useColor":true
 }

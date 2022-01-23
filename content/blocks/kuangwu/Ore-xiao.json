@@ -5,7 +5,7 @@
     "oreScale": 40, //自动生成的默认规模
     "oreThreshold": 0.93, ////自动生成的默认密集度
 	//"name":"硝矿",
-	"playerUnmineable": false,
+	"playerUnmineable": true,
 	"variants": 3//贴图数量
 	"useColor":true
 }

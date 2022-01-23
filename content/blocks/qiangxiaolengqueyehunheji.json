@@ -17,7 +17,6 @@
     "hasPower": true,
     "hasItems": true,
     "craftTime": 600,
-    //"updateEffect": "smoke",
     "consumes": {
         "power": 11,
         "items": {
@@ -32,8 +31,8 @@
                 },
                 {
                     "item": "weijing2",
-                    "amount": 1
-                }
+                    "amount": 4
+                },
                 {
                     "item": "juhebaozhawu",
                     "amount": 3

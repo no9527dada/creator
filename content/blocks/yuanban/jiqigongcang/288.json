@@ -274,7 +274,18 @@
                
             ],
             "time": 12000
-        }
+        },
+        // {
+        //     "unit": "进阶采矿机", //5级矿机
+        //     "requirements": [
+        //         {
+        //             "item": "jin",
+        //             "amount": 1
+        //         }
+               
+        //     ],
+        //     "time": 60
+        // }
     ],
     "liquidCapacity": 180,
     "requirements": [
