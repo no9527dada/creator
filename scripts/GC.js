@@ -505,22 +505,7 @@ Vars.mineTransferRange = 480
 //仓库
 
 
-const weicang = extend(StorageBlock, "weicang", {
-    setStats(){
-        this.super$setStats();
-        this.stats.remove(Stat.buildTime);
-    },
-	
-	drawPlace(x, y, rotation, valid){
-        let player = Vars.player;
-        let rules = Vars.state.rules;
-        let team = player.team();
-
-        if((team.core() != null && !team.core().items.has(this.requirements, rules.buildCostMultiplier)) && !rules.infiniteResources) {
-            this.drawPlaceText(Core.bundle.get("bar.noresources"), x, y, false);
-        }
-    },
-}); //微仓
+const weicang = extend(StorageBlock, "weicang", {}); //微仓
 weicang.requirements = ItemStack.with(Items.copper, 450, Items.lead, 250);
 weicang.buildCostMultiplier = 0;
 weicang.buildVisibility = BuildVisibility.shown;
